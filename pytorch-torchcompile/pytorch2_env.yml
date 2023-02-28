@@ -1,0 +1,23 @@
+# To use:
+#   $ conda env create -f pytorch2.yml
+#   $ conda activate tf_env
+name: pytorch2
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+    - ipywidgets
+    - jupyterlab
+    - ipykernel
+    - matplotlib
+    - ipywidgets
+    - huggingface
+    - transformers
+    - datasets
+    - diffusers["torch"]
+    - accelerate
+    - soundfile
+    - librosa
+  - conda
+  - conda:
+    - ipykernel
