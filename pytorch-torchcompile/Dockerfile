@@ -1,6 +1,6 @@
-FROM ghcr.io/pytorch/pytorch-nightly:24e305c-cu11.7.0
-RUN apt-get update
-RUN apt-get install build-essential -y
+FROM ghcr.io/pytorch/pytorch-nightly:latest
+#RUN apt-get update
+#RUN apt-get install build-essential -y
 RUN apt-get install graphviz autoconf automake gdb git libffi-dev zlib1g-dev libssl-dev libsndfile1 -y
 RUN pip install jupyterlab ipykernel matplotlib ipywidgets
 RUN pip install pydot huggingface transformers datasets
