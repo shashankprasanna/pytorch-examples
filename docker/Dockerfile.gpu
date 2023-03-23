@@ -45,6 +45,11 @@ RUN pip install \
 	soundfile \
 	librosa \
 	torchdiffeq
+RUN pip install \
+	xgboost \
+	scikit-learn \
+	bokeh
+
 RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
 ENTRYPOINT ["jupyter", "lab", "--ip='*'", "--NotebookApp.token=''", "--NotebookApp.password=''","--allow-root"]
 

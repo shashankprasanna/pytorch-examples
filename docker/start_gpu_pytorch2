@@ -1,11 +1,10 @@
 [ ! -z "$(docker ps -a -q)" ] && docker rm $(docker ps -a -q)
-docker build -t pytorch2:latest -f docker/Dockerfile.torchgpu .
+docker build -t pytorch2:gpu -f docker/Dockerfile.gpu .
 [ ! -z "$(docker images -f dangling=true -q)" ] && docker rmi $(docker images -f dangling=true -q)
 docker run -it --rm \
 	--network=host \
-	--name=pytorch2 \
 	--gpus all \
 	-v $PWD/:/pytorch-examples \
 	-v ~/.cache/:/root/.cache \
 	--workdir /pytorch-examples \
-	pytorch2:latest
+	pytorch2:gpu

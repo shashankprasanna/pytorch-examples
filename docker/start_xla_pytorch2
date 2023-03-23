@@ -1,0 +1,10 @@
+[ ! -z "$(docker ps -a -q)" ] && docker rm $(docker ps -a -q)
+docker build -t pytorch2:xla -f docker/Dockerfile.xlagpu .
+[ ! -z "$(docker images -f dangling=true -q)" ] && docker rmi $(docker images -f dangling=true -q)
+docker run -it --rm \
+	--network=host \
+	--gpus all \
+	-v $PWD/:/pytorch-examples \
+	-v ~/.cache/:/root/.cache \
+	--workdir /pytorch-examples \
+	pytorch2:xla
