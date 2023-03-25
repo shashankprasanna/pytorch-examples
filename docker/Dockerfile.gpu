@@ -48,6 +48,7 @@ RUN pip install \
 RUN pip install \
 	xgboost \
 	scikit-learn \
+	tabulate \
 	bokeh
 
 RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
