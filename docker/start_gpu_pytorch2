@@ -1,5 +1,8 @@
 [ ! -z "$(docker ps -a -q)" ] && docker rm $(docker ps -a -q)
-docker build -t pytorch2:gpu -f docker/Dockerfile.gpu .
+callpath=$PWD
+cd $(dirname "$0")
+docker build -t pytorch2:gpu -f Dockerfile.gpu .
+cd $callpath
 [ ! -z "$(docker images -f dangling=true -q)" ] && docker rmi $(docker images -f dangling=true -q)
 docker run -it --rm \
 	--network=host \
