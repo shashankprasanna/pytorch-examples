@@ -52,6 +52,7 @@ RUN pip install \
 	bokeh
 
 RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements"
-ENTRYPOINT ["jupyter", "lab", "--ip='*'", "--NotebookApp.token=''", "--NotebookApp.password=''","--allow-root"]
+#ENTRYPOINT ["jupyter", "lab", "--ip='*'", "--NotebookApp.token=''", "--NotebookApp.password=''","--allow-root"]
+ENTRYPOINT ["jupyter", "lab", "--ip='*'", "--allow-root"]
 
 

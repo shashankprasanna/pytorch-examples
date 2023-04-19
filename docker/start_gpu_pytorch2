@@ -7,7 +7,8 @@ cd $callpath
 docker run -it --rm \
 	--network=host \
 	--gpus all \
-	-v $PWD/:/pytorch-examples \
+	-v $PWD/:/workspace \
 	-v ~/.cache/:/root/.cache \
-	--workdir /pytorch-examples \
+	--workdir /workspace \
+	--name pytorch \
 	pytorch2:gpu
